@@ -756,7 +756,7 @@
         <section class="hero">
             <div class="badge">&#9889; 100% Free &mdash; No Signup</div>
             <h2>Free <em>Online Notepad</em><br>with Instant Sharing</h2>
-            <p>Write, edit, and share notes instantly in your browser. Fast, private, and distraction-free & share any note with a unique link in one click.</p>
+            <p>Write, edit, and share notes instantly in your browser. Fast, private, and distraction-free — share any note with a unique link in one click.</p>
         </section>
 
         <!-- EDITOR -->
@@ -766,7 +766,7 @@
                     <div class="ed-topbar-left"><div class="mini-logo">N</div><span>Notepad Online</span></div>
                     <span class="ed-saved" id="saveStatus">Last Saved: just now</span>
                     <div class="ed-topbar-right">
-                        <button class="ed-theme-btn" onclick="toggleTheme()" id="themeBtn2">☀️</button>
+                        <button class="ed-theme-btn" onclick="toggleTheme()" id="themeBtn2">&#9728;&#65039;</button>
                         <button class="ed-save-btn" onclick="saveManual()">Save</button>
                     </div>
                 </div>
@@ -1115,8 +1115,10 @@
         }
 
         async function sbGet(table, id) {
-            const r = await fetch(SB_URL + '/rest/v1/' + table + '?id=eq.' + id + '&select=*', {
-                headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY }
+            const r = await fetch(SB_URL + '/rest/v1/rpc/get_note', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY },
+                body: JSON.stringify({ note_id: id })
             });
             return r.json();
         }
@@ -1144,7 +1146,7 @@
             document.getElementById('shareRow').style.display = 'none';
             document.getElementById('shareModal').classList.add('open');
             try {
-                const id = crypto.randomUUID().slice(0, 8);
+                const id = crypto.randomUUID();
                 const r = await sbPost('notes', { id: id, content: html, created_at: new Date().toISOString() });
                 if (r && r.length > 0) {
                     const url = location.origin + '/#note/' + id;
@@ -1269,6 +1271,5 @@
             setTimeout(() => t.classList.remove('show'), 2200);
         }
     </script>
-    <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
