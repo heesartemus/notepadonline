@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad Online - Free Text Editor | Write, Edit & Share Notes Instantly</title>
+    <meta name="description" content="Free online notepad with instant sharing. Write, edit, format and share notes instantly in your browser. No signup required. Rich text editor with dark mode.">
+    <meta name="keywords" content="notepad online, online notepad, free online notepad, online writing notepad, free online writing notepad, notepad online free, online text editor, plain text editor, quick notes online">
+    <meta name="author" content="Notepad Online">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://notepadonline.app/">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Notepad Online - Free Text Editor with Instant Sharing">
+    <meta property="og:description" content="Write, edit, format and share notes instantly. No signup needed. Free online notepad.">
+    <meta property="og:url" content="https://notepadonline.app/">
+    <meta property="og:site_name" content="Notepad Online">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Notepad Online - Free Text Editor with Instant Sharing">
+    <meta name="twitter:description" content="Write, edit, format and share notes instantly. Free, fast, no signup required.">
+
+    <!-- Schema: WebApplication -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Notepad Online",
+        "url": "https://notepadonline.app/",
+        "description": "Free online notepad to write, edit and save notes instantly in your browser.",
+        "applicationCategory": "Productivity",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "featureList": ["Write notes online", "Instant sharing via link", "Rich text formatting", "Download as TXT", "Word count", "Character count", "Dark mode", "Auto-save", "No signup required"]
+    }
+    </script>
+
+    <!-- Schema: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is Notepad Online free to use?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free. No signup, no ads, no hidden costs." }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I share my notes with others?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. Click the Share button and a unique link is generated. Anyone with the link can view your note instantly — no signup needed on either end." }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I save my notes?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. Notes auto-save in your browser. You can also download them as .txt files or share them via a unique link." }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work on mobile?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes, it works on any device with a modern browser." }
+            },
+            {
+                "@type": "Question",
+                "name": "What is an online writing notepad?",
+                "acceptedAnswer": { "@type": "Answer", "text": "An online writing notepad is a browser-based text editor that lets you write, edit, format, share, and save text without installing any software." }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Schema: Blog -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Notepad Online Blog",
+        "url": "https://notepadonline.app/#blog",
+        "description": "Tips, guides, and comparisons about online notepads and text editors."
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #FAF9F7;
+            --bg-card: #FFFFFF;
+            --text: #1A1A1A;
+            --text-muted: #7A7A7A;
+            --accent: #E8572A;
+            --accent-hover: #D04A20;
+            --accent-soft: #FDEEE9;
+            --border: #E8E6E3;
+            --editor-bg: #FFFFFF;
+            --toolbar-bg: #F5F4F2;
+            --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+            --shadow-lg: 0 4px 20px rgba(0,0,0,0.06);
+            --radius: 14px;
+            --font-body: 'DM Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-serif: 'Newsreader', Georgia, serif;
+        }
+
+        [data-theme="dark"] {
+            --bg: #121210;
+            --bg-card: #1C1C1A;
+            --text: #EAEAE8;
+            --text-muted: #8A8A88;
+            --accent: #F06B3F;
+            --accent-hover: #FF7D52;
+            --accent-soft: #2A1F1A;
+            --border: #2A2A28;
+            --editor-bg: #181816;
+            --toolbar-bg: #222220;
+            --shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2);
+            --shadow-lg: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background 0.3s, color 0.3s;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ═══ HEADER ═══ */
+        header {
+            padding: 14px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-card);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .logo-icon {
+            width: 36px; height: 36px;
+            background: var(--accent);
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 17px;
+        }
+
+        .logo-text {
+            font-size: 19px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span { color: var(--accent); }
+
+        nav { display: flex; align-items: center; gap: 4px; }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        nav a:hover { color: var(--text); background: var(--toolbar-bg); }
+
+        .theme-btn {
+            width: 38px; height: 38px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg-card);
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+            transition: all 0.2s;
+        }
+
+        .theme-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* ═══ HERO ═══ */
+        .hero {
+            text-align: center;
+            padding: 52px 24px 28px;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            padding: 5px 14px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            letter-spacing: 0.3px;
+        }
+
+        .hero h2 {
+            font-size: clamp(30px, 5vw, 48px);
+            font-weight: 700;
+            letter-spacing: -1.8px;
+            line-height: 1.1;
+            margin-bottom: 14px;
+        }
+
+        .hero h2 em {
+            font-style: normal;
+            color: var(--accent);
+            position: relative;
+        }
+
+        .hero h2 em::after {
+            content: '';
+            position: absolute;
+            left: -2px; bottom: 2px;
+            width: calc(100% + 4px);
+            height: 7px;
+            background: var(--accent);
+            opacity: 0.15;
+            border-radius: 3px;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 17px;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.65;
+        }
+
+        /* ═══ EDITOR ═══ */
+        .editor-wrap {
+            max-width: 880px;
+            width: 100%;
+            margin: 0 auto 48px;
+            padding: 0 24px;
+        }
+
+
+
+        /* ═══ FEATURES ═══ */
+        .section {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 0 24px 64px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 16px;
+            margin-bottom: 36px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 14px;
+        }
+
+        .feat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 26px;
+            transition: all 0.25s;
+        }
+
+        .feat-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow);
+            transform: translateY(-3px);
+        }
+
+        .feat-card .ic {
+            width: 42px; height: 42px;
+            background: var(--accent-soft);
+            border-radius: 11px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px;
+            margin-bottom: 14px;
+        }
+
+        .feat-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+        .feat-card p { font-size: 14px; color: var(--text-muted); line-height: 1.55; }
+
+        /* ═══ BLOG ═══ */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .blog-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .blog-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+        }
+
+        .blog-thumb {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-thumb.t1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .blog-thumb.t2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .blog-thumb.t3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+
+        .blog-thumb span {
+            font-size: 56px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+        }
+
+        .blog-body {
+            padding: 20px;
+        }
+
+        .blog-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .blog-body h4 {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            line-height: 1.35;
+            margin-bottom: 8px;
+        }
+
+        .blog-body p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.55;
+            margin-bottom: 12px;
+        }
+
+        .blog-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            opacity: 0.7;
+        }
+
+        /* ═══ ARTICLE (full) ═══ */
+        .article-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: var(--bg);
+            z-index: 200;
+            overflow-y: auto;
+        }
+
+        .article-overlay.open { display: block; }
+
+        .article-header {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 0;
+        }
+
+        .article-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 28px;
+            cursor: pointer;
+        }
+
+        .article-back:hover { opacity: 0.8; }
+
+        .article-header h1 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 700;
+            letter-spacing: -1.2px;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .article-header .a-meta {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        .article-content h2 {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin: 36px 0 14px;
+        }
+
+        .article-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 28px 0 12px;
+        }
+
+        .article-content p {
+            font-family: var(--font-serif);
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 18px;
+            opacity: 0.88;
+        }
+
+        .article-content ul {
+            margin: 0 0 18px 24px;
+            font-family: var(--font-serif);
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--text);
+            opacity: 0.88;
+        }
+
+        .article-content ul li { margin-bottom: 8px; }
+
+        .article-content .callout {
+            background: var(--accent-soft);
+            border-left: 4px solid var(--accent);
+            padding: 18px 22px;
+            border-radius: 0 10px 10px 0;
+            margin: 24px 0;
+        }
+
+        .article-content .callout p {
+            margin: 0;
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        /* ═══ FAQ ═══ */
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 10px;
+            background: var(--bg-card);
+            overflow: hidden;
+        }
+
+        .faq-q {
+            padding: 18px 24px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .faq-q:hover { color: var(--accent); }
+
+        .faq-q .arr {
+            font-size: 12px;
+            transition: transform 0.3s;
+            color: var(--text-muted);
+        }
+
+        .faq-item.open .faq-q .arr { transform: rotate(180deg); }
+
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+        .faq-item.open .faq-a { max-height: 300px; }
+
+        .faq-a p {
+            padding: 0 24px 18px;
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ═══ SEO CONTENT ═══ */
+        .seo-text h3 {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+
+        .seo-text p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.75;
+            margin-bottom: 18px;
+        }
+
+        /* ═══ FOOTER ═══ */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 28px 32px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+            background: var(--bg-card);
+            margin-top: auto;
+        }
+
+        footer a { color: var(--accent); text-decoration: none; }
+
+        /* ═══ TOAST ═══ */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: var(--text);
+            color: var(--bg);
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+            z-index: 999;
+            pointer-events: none;
+        }
+
+        .toast.show { transform: translateX(-50%) translateY(0); }
+
+        @media (max-width: 640px) {
+            header { padding: 12px 16px; }
+            nav a.hide-mobile { display: none; }
+            .hero { padding: 36px 16px 20px; }
+            .editor-wrap { padding: 0 12px; }
+            .section { padding: 0 16px 48px; }
+            .toolbar { padding: 8px 10px; }
+            .stats { gap: 10px; }
+        }
+
+        /* ═══ NEW RICH EDITOR ═══ */
+        .editor-wrap {
+            max-width: 960px;
+            width: 100%;
+            margin: 0 auto 48px;
+            padding: 0 24px;
+        }
+
+        .editor-frame {
+            border-radius: 14px;
+            padding: 2px;
+            background: linear-gradient(135deg, #FFB3B3, #FFDDB3, #FFB3D9, #B3D4FF, #D4B3FF, #FFB3B3);
+            background-size: 300% 300%;
+            animation: gradBorder 8s ease infinite;
+        }
+        @keyframes gradBorder {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .editor-inner {
+            background: var(--bg-card);
+            border-radius: 13px;
+            overflow: hidden;
+        }
+
+        .ed-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        .ed-topbar-left { display: flex; align-items: center; gap: 8px; }
+        .ed-topbar-left .mini-logo {
+            width: 24px; height: 24px; border-radius: 6px;
+            background: var(--accent); display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 800; font-size: 12px;
+        }
+        .ed-topbar-left span { font-size: 14px; font-weight: 600; }
+        .ed-saved { font-size: 12px; color: var(--text-muted); }
+        .ed-topbar-right { display: flex; align-items: center; gap: 6px; }
+        .ed-theme-btn {
+            width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border);
+            background: var(--bg-card); color: var(--text-muted); cursor: pointer;
+            display: flex; align-items: center; justify-content: center; font-size: 16px;
+            transition: all 0.15s;
+        }
+        .ed-theme-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .ed-save-btn {
+            height: 34px; padding: 0 18px; border-radius: 8px; border: none;
+            background: var(--text); color: var(--bg); font-family: var(--font-body);
+            font-size: 13px; font-weight: 600; cursor: pointer; transition: opacity 0.15s;
+        }
+        .ed-save-btn:hover { opacity: 0.85; }
+
+        .rich-toolbar {
+            display: flex; align-items: center; gap: 1px; padding: 6px 14px;
+            border-bottom: 1px solid var(--border); overflow-x: auto;
+        }
+        .rich-toolbar button {
+            width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;
+            border: none; border-radius: 7px; background: transparent; color: var(--text-muted);
+            cursor: pointer; transition: all 0.12s; flex-shrink: 0;
+        }
+        .rich-toolbar button:hover { background: var(--toolbar-bg); color: var(--text); }
+        .rich-toolbar button svg { width: 17px; height: 17px; stroke: currentColor; stroke-width: 2; fill: none; }
+        .rich-toolbar .sep { width: 1px; height: 20px; background: var(--border); margin: 0 8px; flex-shrink: 0; }
+        .rich-toolbar select {
+            padding: 6px 10px; border: 1px solid var(--border); border-radius: 7px;
+            background: var(--toolbar-bg); color: var(--text); font-family: var(--font-body);
+            font-size: 13px; font-weight: 500; cursor: pointer; outline: none; margin-right: 4px;
+        }
+
+        #editor {
+            width: 100%; min-height: 420px; padding: 28px 36px; outline: none;
+            font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+            color: var(--text); background: var(--editor-bg);
+        }
+        #editor:empty::before { content: 'Start typing to get started...'; color: var(--text-muted); opacity: 0.5; pointer-events: none; }
+        #editor blockquote { border-left: 3px solid var(--accent); padding-left: 14px; margin: 6px 0; color: var(--text-muted); }
+        #editor pre, #editor code { font-family: var(--font-mono); background: var(--toolbar-bg); border-radius: 5px; padding: 2px 6px; font-size: 14px; }
+        #editor pre { padding: 16px; margin: 8px 0; }
+        #editor ul, #editor ol { margin-left: 22px; }
+
+        .statusbar {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 8px 14px; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 8px;
+        }
+        .statusbar .stats { display: flex; gap: 16px; font-size: 12px; font-family: var(--font-mono); color: var(--text-muted); }
+        .statusbar .stats b { color: var(--text); font-weight: 600; }
+        .sbar-right { display: flex; gap: 6px; }
+        .sbar-btn {
+            height: 32px; padding: 0 14px; border: 1px solid var(--border); border-radius: 8px;
+            background: var(--bg-card); color: var(--text-muted); font-family: var(--font-body);
+            font-size: 13px; font-weight: 500; cursor: pointer;
+            display: flex; align-items: center; gap: 5px; transition: all 0.15s;
+        }
+        .sbar-btn:hover { border-color: var(--accent); color: var(--text); }
+        .sbar-btn svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2; fill: none; }
+        .share-btn { background: var(--accent); color: white; border-color: var(--accent); }
+        .share-btn:hover { opacity: 0.88; color: white; }
+
+        /* ═══ SHARE MODAL ═══ */
+        .modal-bg { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(3px); z-index: 500; align-items: center; justify-content: center; padding: 20px; }
+        .modal-bg.open { display: flex; }
+        .modal-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; max-width: 440px; width: 100%; box-shadow: var(--shadow-lg); }
+        .modal-box h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+        .modal-box p { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; }
+        .share-link-row { display: flex; gap: 8px; }
+        .share-link-row input { flex: 1; height: 40px; padding: 0 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--toolbar-bg); color: var(--text); font-family: var(--font-mono); font-size: 12px; outline: none; }
+        .share-link-row button { height: 40px; padding: 0 18px; border-radius: 8px; border: none; background: var(--accent); color: white; font-family: var(--font-body); font-size: 13px; font-weight: 600; cursor: pointer; }
+        .share-link-row button:hover { opacity: 0.88; }
+        .modal-foot { margin-top: 12px; text-align: right; }
+        .modal-foot button { background: none; border: none; color: var(--text-muted); font-family: var(--font-body); font-size: 13px; cursor: pointer; }
+        .modal-foot button:hover { color: var(--text); }
+    </style>
+</head>
+<body>
+
+    <!-- ═══ HEADER ═══ -->
+    <header>
+        <a href="#" class="logo" onclick="closeArticle(); return false;" aria-label="Notepad Online Home">
+            <div class="logo-icon">N</div>
+            <div class="logo-text">notepad<span>online</span></div>
+        </a>
+        <nav>
+            <a href="#features" class="hide-mobile">Features</a>
+            <a href="#blog">Blog</a>
+            <a href="#faq" class="hide-mobile">FAQ</a>
+            <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle dark mode" id="themeBtn">&#9728;&#65039;</button>
+        </nav>
+    </header>
+
+    <!-- ═══ MAIN PAGE ═══ -->
+    <main id="mainPage">
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="badge">&#9889; 100% Free &mdash; No Signup</div>
+            <h2>Free <em>Online Notepad</em><br>with Instant Sharing</h2>
+            <p>Write, edit, and share notes instantly in your browser. Fast, private, and distraction-free — share any note with a unique link in one click.</p>
+        </section>
+
+        <!-- EDITOR -->
+        <div class="editor-wrap">
+            <div class="editor-frame"><div class="editor-inner">
+                <div class="ed-topbar">
+                    <div class="ed-topbar-left"><div class="mini-logo">N</div><span>Notepad Online</span></div>
+                    <span class="ed-saved" id="saveStatus">Last Saved: just now</span>
+                    <div class="ed-topbar-right">
+                        <button class="ed-theme-btn" onclick="toggleTheme()" id="themeBtn2">&#9790;</button>
+                        <button class="ed-save-btn" onclick="saveManual()">Save</button>
+                    </div>
+                </div>
+                <div class="rich-toolbar">
+                    <button onclick="execCmd('undo')" title="Undo"><svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg></button>
+                    <button onclick="execCmd('redo')" title="Redo"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.13-9.36L23 10"/></svg></button>
+                    <div class="sep"></div>
+                    <select onchange="execBlock(this.value);this.selectedIndex=0"><option selected disabled>Normal Text</option><option value="p">Normal</option><option value="h1">Heading 1</option><option value="h2">Heading 2</option><option value="h3">Heading 3</option></select>
+                    <div class="sep"></div>
+                    <button onclick="execCmd('bold')" title="Bold"><svg viewBox="0 0 24 24"><path d="M6 4h8a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"/><path d="M6 12h9a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"/></svg></button>
+                    <button onclick="execCmd('italic')" title="Italic"><svg viewBox="0 0 24 24"><line x1="19" y1="4" x2="10" y2="4"/><line x1="14" y1="20" x2="5" y2="20"/><line x1="15" y1="4" x2="9" y2="20"/></svg></button>
+                    <button onclick="execCmd('underline')" title="Underline"><svg viewBox="0 0 24 24"><path d="M6 3v7a6 6 0 0 0 6 6 6 6 0 0 0 6-6V3"/><line x1="4" y1="21" x2="20" y2="21"/></svg></button>
+                    <button onclick="execCmd('createLink',prompt('Enter URL:'))" title="Link"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button>
+                    <div class="sep"></div>
+                    <button onclick="execCmd('insertUnorderedList')" title="Bullet List"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></button>
+                    <button onclick="execCmd('insertOrderedList')" title="Numbered List"><svg viewBox="0 0 24 24"><line x1="10" y1="6" x2="21" y2="6"/><line x1="10" y1="12" x2="21" y2="12"/><line x1="10" y1="18" x2="21" y2="18"/><path d="M4 6h1v4"/><path d="M4 10h2"/><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></button>
+                    <button onclick="execCmd('formatBlock','blockquote')" title="Quote"><svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3z"/></svg></button>
+                    <button onclick="insertCode()" title="Code"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></button>
+                    <div class="sep"></div>
+                    <button onclick="printNote()" title="Print"><svg viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></button>
+                    <button onclick="downloadNote()" title="Download"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+                </div>
+                <div id="editor" contenteditable="true" spellcheck="true" role="textbox" aria-label="Online notepad rich text editor"></div>
+                <div class="statusbar">
+                    <div class="stats"><span>Words <b id="wc">0</b></span><span>Chars <b id="cc">0</b></span><span>Lines <b id="lc">1</b></span></div>
+                    <div class="sbar-right">
+                        <button class="sbar-btn" onclick="copyText()"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy</button>
+                        <button class="sbar-btn share-btn" onclick="shareNote()"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Share</button>
+                    </div>
+                </div>
+            </div></div>
+        </div>
+
+        <!-- FEATURES -->
+        <section class="section" id="features">
+            <h3 class="section-title">Why Use Our Free Online Notepad?</h3>
+            <p class="section-sub">Everything you need for quick writing, nothing you don't.</p>
+            <div class="feat-grid">
+                <article class="feat-card">
+                    <div class="ic">&#9889;</div>
+                    <h4>Instant &amp; Fast</h4>
+                    <p>No loading, no setup. Opens instantly in any browser so you can start writing immediately.</p>
+                </article>
+                <article class="feat-card">
+                    <div class="ic">&#128274;</div>
+                    <h4>Private &amp; Secure</h4>
+                    <p>Your notes stay in your browser. Nothing is sent to any server. Complete privacy guaranteed.</p>
+                </article>
+                <article class="feat-card">
+                    <div class="ic">&#128190;</div>
+                    <h4>Auto-Save Built In</h4>
+                    <p>Notes save automatically as you type. Close the tab, come back later &mdash; your work is still here.</p>
+                </article>
+                <article class="feat-card">
+                    <div class="ic">&#128241;</div>
+                    <h4>Works on Any Device</h4>
+                    <p>Desktop, tablet, or phone. Fully responsive design that works perfectly everywhere.</p>
+                </article>
+                <article class="feat-card">
+                    <div class="ic">&#127769;</div>
+                    <h4>Dark Mode</h4>
+                    <p>Switch between light and dark themes with one click. Easy on the eyes during late-night writing.</p>
+                </article>
+                <article class="feat-card">
+                    <div class="ic">&#128202;</div>
+                    <h4>Live Word Count</h4>
+                    <p>Real-time word, character, and line counts. Perfect for writers with specific length requirements.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- BLOG SECTION -->
+        <section class="section" id="blog">
+            <h3 class="section-title">Latest Articles</h3>
+            <p class="section-sub">Tips, guides, and comparisons to help you write better online.</p>
+            <div class="blog-grid">
+
+                <div class="blog-card" onclick="openArticle(1)">
+                    <div class="blog-thumb t1"><span>&#128210;</span></div>
+                    <div class="blog-body">
+                        <div class="blog-tag">Guide</div>
+                        <h4>White Notepad for Engineering Online: The Best Tool for Technical Notes</h4>
+                        <p>Why engineers and developers are switching to online notepads for quick calculations, code snippets, and project notes.</p>
+                        <div class="blog-meta">March 25, 2026 &middot; 6 min read</div>
+                    </div>
+                </div>
+
+                <div class="blog-card" onclick="openArticle(2)">
+                    <div class="blog-thumb t2"><span>&#9997;&#65039;</span></div>
+                    <div class="blog-body">
+                        <div class="blog-tag">Writing</div>
+                        <h4>Online Writing Notepad: 7 Ways to Boost Your Productivity</h4>
+                        <p>Practical tips for using a free online writing notepad to write faster, think clearer, and get more done every day.</p>
+                        <div class="blog-meta">March 22, 2026 &middot; 5 min read</div>
+                    </div>
+                </div>
+
+                <div class="blog-card" onclick="openArticle(3)">
+                    <div class="blog-thumb t3"><span>&#128640;</span></div>
+                    <div class="blog-body">
+                        <div class="blog-tag">Comparison</div>
+                        <h4>Free Online Notepad vs. Desktop Notepad: Which Should You Use?</h4>
+                        <p>A detailed comparison of browser-based notepads versus installed apps like Windows Notepad and TextEdit.</p>
+                        <div class="blog-meta">March 18, 2026 &middot; 7 min read</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section" id="faq">
+            <h3 class="section-title">Frequently Asked Questions</h3>
+            <p class="section-sub">Quick answers about our free online notepad.</p>
+
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Is Notepad Online completely free?<span class="arr">&#9660;</span></div>
+                <div class="faq-a"><p>Yes, 100% free. No signup, no subscriptions, and no hidden fees. Just open the page and start typing. We believe a simple writing tool should be accessible to everyone.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">How do I save my notes?<span class="arr">&#9660;</span></div>
+                <div class="faq-a"><p>Your notes are automatically saved in your browser's local storage as you type. You can also download your text as a .txt file by clicking the Download button, or click Share to generate a unique link and send your note to anyone.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Does this online notepad work on mobile phones?<span class="arr">&#9660;</span></div>
+                <div class="faq-a"><p>Absolutely. Our notepad is fully responsive and works on any device &mdash; iPhones, Android phones, iPads, tablets, laptops, and desktops. Any modern browser will work: Chrome, Safari, Firefox, or Edge.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Is my text stored on your servers?<span class="arr">&#9660;</span></div>
+                <div class="faq-a"><p>No. Everything stays locally in your browser by default. We don't collect or track any of your writing. The only time your text leaves your device is when you explicitly click the Share button to generate a shareable link.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">What is an online writing notepad used for?<span class="arr">&#9660;</span></div>
+                <div class="faq-a"><p>An online writing notepad is perfect for quickly jotting down ideas, drafting emails, writing to-do lists, storing code snippets, taking meeting notes, or editing plain text &mdash; all without installing any software on your device.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Can I use this as a Notepad++ alternative online?<span class="arr">&#9660;</span></div>
+                <div class="faq-a"><p>For quick text editing and sharing, yes. While Notepad++ offers advanced features like syntax highlighting and plugins, our online notepad covers the essentials &mdash; rich text formatting, instant sharing via link, word count, and instant downloads &mdash; without any installation.</p></div>
+            </div>
+        </section>
+
+        <!-- SEO CONTENT -->
+        <section class="section seo-text" id="about">
+            <h3>About Notepad Online</h3>
+            <p>Notepad Online is a free, browser-based text editor with rich formatting and instant sharing for anyone who needs a fast, distraction-free place to write. Whether you're jotting down a quick idea, drafting an email, making a to-do list, or storing code snippets, this online notepad gets out of your way and lets you focus on your words. Need to send your note to someone? Just click Share and a unique link is generated instantly &mdash; no signup required on either end.</p>
+            <p>Unlike desktop applications such as Windows Notepad, macOS TextEdit, or Notepad++, our free online notepad requires zero downloads or installations. It works on every operating system &mdash; Windows, macOS, Linux, ChromeOS, Android, and iOS &mdash; directly in your web browser. And because it includes instant sharing, it replaces the need for emailing text files or copying into Google Docs just to share a quick note.</p>
+
+            <h3>How to Use This Free Online Writing Notepad</h3>
+            <p>Simply start typing in the editor above. Format your text using the toolbar &mdash; add headings, bold, italic, lists, quotes, and code blocks. Your work is auto-saved in your browser, so you won't lose anything if you accidentally close the tab. When you're ready to share, click the Share button to generate a unique link that anyone can open. You can also click "Download" to save as a .txt file, or "Copy" to paste your text anywhere. The built-in word counter, character counter, and line counter update in real time as you write.</p>
+        </section>
+    </main>
+
+    <!-- ═══ ARTICLE OVERLAYS ═══ -->
+
+    <!-- ARTICLE 1 -->
+    <div class="article-overlay" id="article1">
+        <div class="article-header">
+            <div class="article-back" onclick="closeArticle()">&#8592; Back to Notepad Online</div>
+            <h1>White Notepad for Engineering Online: The Best Tool for Technical Notes</h1>
+            <div class="a-meta">
+                <span>&#128197; March 25, 2026</span>
+                <span>&#9201; 6 min read</span>
+                <span>&#128210; Guide</span>
+            </div>
+        </div>
+        <div class="article-content">
+            <p>Engineers, developers, and technical professionals need a reliable space to capture ideas quickly. Whether you're sketching out a calculation, saving a code snippet, or writing meeting notes during a design review, a clean white notepad that works right in your browser is invaluable.</p>
+
+            <h2>What Is a White Notepad for Engineering?</h2>
+            <p>A white notepad for engineering online is simply a clean, blank text editor designed for distraction-free writing. Unlike word processors loaded with formatting toolbars, an online engineering notepad gives you a blank canvas where you can type freely &mdash; no menus, no templates, no clutter.</p>
+            <p>For engineers, this simplicity is a feature, not a limitation. When you need to quickly paste a terminal output, draft a formula description, or write pseudo-code before switching to an IDE, a fast-loading white notepad is the ideal tool.</p>
+
+            <h2>Why Engineers Prefer Online Notepads Over Desktop Apps</h2>
+            <p>Traditional desktop notepads like Windows Notepad or macOS TextEdit work fine, but they require you to be at a specific machine. An online notepad gives you several key advantages in engineering workflows:</p>
+            <ul>
+                <li><strong>Access from anywhere:</strong> Open it on your laptop, desktop, or phone. If you're at a lab bench and need to jot something down, pull it up on your phone instantly.</li>
+                <li><strong>No installation required:</strong> Useful when working on shared lab computers, remote servers, or client machines where you can't install software.</li>
+                <li><strong>Tab-friendly workflow:</strong> Engineers live in browser tabs. Having your notepad right next to your documentation, dashboards, and project management tools means faster context switching.</li>
+                <li><strong>Instant loading:</strong> No waiting for Word or Google Docs to load. A lightweight online notepad opens in under a second.</li>
+            </ul>
+
+            <div class="callout">
+                <p>&#128161; Pro tip: Use keyboard shortcuts to speed up your workflow. Tab key inserts actual tabs (great for pseudo-code), and Ctrl+A selects all text for quick copying.</p>
+            </div>
+
+            <h2>Common Engineering Use Cases</h2>
+
+            <h3>1. Quick Calculations and Scratch Work</h3>
+            <p>Before firing up MATLAB or Python, engineers often need a space to think through a problem. An online notepad is perfect for writing out formulas in plain text, listing variables, or outlining an algorithm before coding it.</p>
+
+            <h3>2. Storing Code Snippets and Commands</h3>
+            <p>If you frequently use terminal commands, SQL queries, or configuration strings, keeping an online notepad open with your commonly used snippets saves you from digging through documentation every time.</p>
+
+            <h3>3. Meeting Notes During Design Reviews</h3>
+            <p>During fast-paced engineering meetings, you don't want to fight with formatting. A plain text notepad lets you capture action items, decisions, and technical details in real time without slowing down.</p>
+
+            <h3>4. Drafting Documentation Outlines</h3>
+            <p>Before writing formal specifications or reports, many engineers draft outlines in plain text first. It keeps you focused on structure and content rather than layout and style.</p>
+
+            <h2>Features That Matter for Engineering Use</h2>
+            <p>Not every online notepad is suitable for technical work. Here are the features that matter most for engineers:</p>
+            <ul>
+                <li><strong>Monospace font:</strong> Essential for aligning code, ASCII diagrams, and tabular data. Our notepad uses JetBrains Mono for clear, readable fixed-width text.</li>
+                <li><strong>Tab support:</strong> Real tab characters, not spaces. Critical for pasting and editing indented code or data.</li>
+                <li><strong>Character count:</strong> Useful when working with protocols or data formats that have length limits.</li>
+                <li><strong>Instant download:</strong> Save your notes as .txt files with one click for archiving or sharing with your team.</li>
+                <li><strong>Auto-save:</strong> Never lose your work if your browser crashes or your VPN drops.</li>
+            </ul>
+
+            <h2>Try It Now</h2>
+            <p>If you're looking for a clean, fast white notepad for engineering work online, scroll up and start typing. No account needed, no setup, no distractions. Just a blank page ready for your ideas.</p>
+        </div>
+    </div>
+
+    <!-- ARTICLE 2 -->
+    <div class="article-overlay" id="article2">
+        <div class="article-header">
+            <div class="article-back" onclick="closeArticle()">&#8592; Back to Notepad Online</div>
+            <h1>Online Writing Notepad: 7 Ways to Boost Your Writing Productivity</h1>
+            <div class="a-meta">
+                <span>&#128197; March 22, 2026</span>
+                <span>&#9201; 5 min read</span>
+                <span>&#9997;&#65039; Writing</span>
+            </div>
+        </div>
+        <div class="article-content">
+            <p>Writer's block often isn't about lack of ideas &mdash; it's about too many distractions. A cluttered desktop, notification pings, and overly complex writing tools can drain your creative energy before you write a single word. That's exactly why an online writing notepad is one of the most underrated productivity tools available today.</p>
+
+            <h2>Why a Simple Online Writing Notepad Beats Complex Tools</h2>
+            <p>Apps like Google Docs, Notion, and Word are powerful, but their feature-rich interfaces can become obstacles to focused writing. An online writing notepad strips everything away and gives you just a blank page and a blinking cursor. This constraint is liberating &mdash; it tells your brain that the only thing to do right now is write.</p>
+
+            <h2>7 Productivity Tips Using an Online Notepad</h2>
+
+            <h3>1. Start Every Day with a Brain Dump</h3>
+            <p>Before opening email or Slack, open your online notepad and write for five minutes. Dump everything that's on your mind: tasks, worries, random ideas. This clears mental clutter and helps you prioritize your day. Many successful writers and executives swear by this "morning pages" technique.</p>
+
+            <h3>2. Write First, Edit Later</h3>
+            <p>A plain text notepad has no bold, no italics, no formatting options to fiddle with. This forces you to focus on getting words down instead of perfecting how they look. Write your first draft in the online notepad, then move it to your final tool for formatting. You'll be surprised how much faster your first drafts come together.</p>
+
+            <h3>3. Use the Word Counter as a Goal Tracker</h3>
+            <p>Set yourself a word count target &mdash; 300 words for a quick blog post, 1,000 for a deep article &mdash; and use the live word counter to track your progress in real time. Having a visible target keeps you motivated and makes writing feel like a completable task rather than an infinite obligation.</p>
+
+            <h3>4. Keep a Running Ideas File</h3>
+            <p>Every time an article idea, business thought, or creative concept strikes you, open your notepad and add it to a running list. Because the notepad auto-saves, you'll build a growing repository of ideas over time. When you sit down to write and don't know what to tackle, your ideas file will always have something waiting for you.</p>
+
+            <h3>5. Draft Emails and Messages Before Sending</h3>
+            <p>Important emails deserve thoughtful crafting. Instead of typing directly in Gmail or Outlook (where you might accidentally hit send), draft your message in the notepad first. Edit it, trim it, and only paste it into your email client when you're satisfied. This small habit prevents embarrassing premature sends and produces better communication.</p>
+
+            <div class="callout">
+                <p>&#128161; Tip: Click "Copy" in the toolbar to instantly copy your entire note to the clipboard, ready to paste into any app.</p>
+            </div>
+
+            <h3>6. Practice Timed Writing Sessions</h3>
+            <p>Set a timer for 25 minutes (the Pomodoro technique) and write non-stop in your online notepad. Don't edit, don't delete, just keep typing. When the timer ends, take a 5-minute break. This technique builds writing stamina and helps overcome perfectionism &mdash; the biggest enemy of productivity.</p>
+
+            <h3>7. Use It as a Meeting Companion</h3>
+            <p>During meetings, keep an online notepad open in a browser tab. It loads faster than any note-taking app and has zero learning curve. Type action items, decisions, and key points as they come up. After the meeting, download the notes as a .txt file and share them with your team.</p>
+
+            <h2>The Simplicity Advantage</h2>
+            <p>The most productive writers aren't the ones with the most tools &mdash; they're the ones with the fewest distractions. An online writing notepad is intentionally simple because simplicity is what lets you write. Try making it your default first step for any writing task and watch your output grow.</p>
+        </div>
+    </div>
+
+    <!-- ARTICLE 3 -->
+    <div class="article-overlay" id="article3">
+        <div class="article-header">
+            <div class="article-back" onclick="closeArticle()">&#8592; Back to Notepad Online</div>
+            <h1>Free Online Notepad vs. Desktop Notepad: Which One Should You Use in 2026?</h1>
+            <div class="a-meta">
+                <span>&#128197; March 18, 2026</span>
+                <span>&#9201; 7 min read</span>
+                <span>&#128640; Comparison</span>
+            </div>
+        </div>
+        <div class="article-content">
+            <p>Almost every computer comes with a built-in notepad application. Windows has Notepad, macOS has TextEdit, and Linux has gedit or nano. These tools have been around for decades and they work well for basic text editing. But in 2026, free online notepads are becoming a serious alternative &mdash; and for many people, a better one.</p>
+            <p>So which should you use? Let's compare them across the factors that actually matter for daily use.</p>
+
+            <h2>Accessibility: Where Can You Use It?</h2>
+            <p>This is where online notepads win decisively. A desktop notepad only works on the device where it's installed. If you're at a different computer, a friend's laptop, a library terminal, or on your phone, you can't access it. A free online notepad works on any device with a browser &mdash; no installation, no login, instant access.</p>
+            <p>For people who switch between devices throughout the day (and that's most of us in 2026), this portability is a game-changer.</p>
+
+            <h2>Speed: How Fast Does It Load?</h2>
+            <p>Desktop Notepad on Windows is famously fast &mdash; it opens almost instantly. Traditional online tools like Google Docs can take several seconds to load, especially on slower connections. However, a well-built free online notepad like ours loads in under one second because it's a single lightweight page with no server-side processing. In practice, the speed difference is negligible.</p>
+
+            <h2>Features: What Can Each Do?</h2>
+            <p>The basic Windows Notepad is extremely minimal. It offers text editing and saving &mdash; that's about it. No word count, no character count, no dark mode. Recent updates have added tabs and a slightly modernized look, but it's still bare-bones.</p>
+            <p>A modern free online notepad typically offers more useful features right out of the box:</p>
+            <ul>
+                <li><strong>Live word and character count</strong> &mdash; essential for writers with length targets</li>
+                <li><strong>Auto-save</strong> &mdash; your work persists even if you close the tab accidentally</li>
+                <li><strong>Dark mode</strong> &mdash; reduces eye strain during long sessions</li>
+                <li><strong>One-click download</strong> &mdash; save your work as a .txt file instantly</li>
+                <li><strong>Copy to clipboard</strong> &mdash; paste your text anywhere with one click</li>
+            </ul>
+            <p>Desktop Notepad++ offers far more advanced features (syntax highlighting, macros, plugins), but it requires installation and only runs on Windows. For the vast majority of quick text-editing tasks, a free online notepad covers everything you need.</p>
+
+            <div class="callout">
+                <p>&#128161; Key insight: If you need advanced code editing, use Notepad++ or VS Code. If you need fast, simple text writing and editing, a free online notepad is usually the better choice.</p>
+            </div>
+
+            <h2>Privacy and Security</h2>
+            <p>With a desktop notepad, your files are stored locally on your hard drive. With a well-built online notepad, your text is also stored locally &mdash; in your browser's storage. No data is sent to any server. From a privacy perspective, both approaches keep your data on your device.</p>
+            <p>The important distinction is between online notepads that are client-side only (like ours) versus those that require accounts and store data on remote servers. Always check whether an online notepad is truly local before trusting it with sensitive information.</p>
+
+            <h2>Offline Use</h2>
+            <p>Desktop Notepad works without an internet connection &mdash; no surprise there. Most online notepads require at least an initial internet connection to load the page. However, once loaded, a good online notepad works entirely in your browser and doesn't need a persistent connection. Some can even be saved as Progressive Web Apps for full offline use.</p>
+
+            <h2>The Verdict: It Depends on Your Workflow</h2>
+            <p>If you work exclusively on one Windows machine and need advanced text-editing features, desktop Notepad or Notepad++ remains a solid choice. But if you switch between devices, want built-in word counting, prefer dark mode, and value the convenience of opening a browser tab instead of launching an application, a free online notepad is the better tool for 2026.</p>
+            <p>For most people in most situations, the flexibility and extra features of a free online notepad make it the smarter default. Try it yourself &mdash; go back to the top of this page and start typing.</p>
+        </div>
+    </div>
+
+    <!-- SHARE MODAL -->
+    <div class="modal-bg" id="shareModal" onclick="if(event.target===this)closeModal()">
+        <div class="modal-box">
+            <h3>&#128279; Share Note</h3>
+            <p id="shareMsg">Generating link...</p>
+            <div class="share-link-row" id="shareRow" style="display:none">
+                <input type="text" id="shareUrl" readonly>
+                <button onclick="copyLink()">Copy</button>
+            </div>
+            <div class="modal-foot"><button onclick="closeModal()">Close</button></div>
+        </div>
+    </div>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+        <p>&copy; 2026 <a href="/">Notepad Online</a> &mdash; Free Online Text Editor &amp; Writing Notepad. No signup. No tracking. Just write.</p>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // ═══ SUPABASE ═══
+        const SB_URL = 'https://rovnygozgksxrcecjxon.supabase.co';
+        const SB_KEY = 'sb_publishable_scDugb5zbxAg5W7GX3HKYg_PL-06TOr';
+
+        async function sbPost(table, data) {
+            const r = await fetch(SB_URL + '/rest/v1/' + table, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY, 'Prefer': 'return=representation' },
+                body: JSON.stringify(data)
+            });
+            return r.json();
+        }
+
+        async function sbGet(table, id) {
+            const r = await fetch(SB_URL + '/rest/v1/' + table + '?id=eq.' + id + '&select=*', {
+                headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY }
+            });
+            return r.json();
+        }
+
+        // ═══ LOAD SHARED NOTE ═══
+        async function loadShared() {
+            const h = location.hash;
+            if (h.startsWith('#note/')) {
+                try {
+                    const d = await sbGet('notes', h.slice(6));
+                    if (d && d.length > 0) {
+                        ed.innerHTML = d[0].content;
+                        showToast('Shared note loaded!');
+                        updateStats();
+                    } else showToast('Note not found');
+                } catch(e) { console.error(e); }
+            }
+        }
+
+        // ═══ SHARE ═══
+        async function shareNote() {
+            const html = ed.innerHTML, text = ed.innerText;
+            if (!text.trim()) { showToast('Write something first!'); return; }
+            document.getElementById('shareMsg').textContent = 'Generating link...';
+            document.getElementById('shareRow').style.display = 'none';
+            document.getElementById('shareModal').classList.add('open');
+            try {
+                const id = crypto.randomUUID().slice(0, 8);
+                const r = await sbPost('notes', { id: id, content: html, created_at: new Date().toISOString() });
+                if (r && r.length > 0) {
+                    const url = location.origin + '/#note/' + id;
+                    document.getElementById('shareUrl').value = url;
+                    document.getElementById('shareMsg').textContent = 'Anyone with this link can view your note:';
+                    document.getElementById('shareRow').style.display = 'flex';
+                } else throw new Error('fail');
+            } catch(e) {
+                document.getElementById('shareMsg').textContent = 'Error creating link. Try again.';
+                console.error(e);
+            }
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(document.getElementById('shareUrl').value).then(() => showToast('Link copied!'));
+        }
+
+        function closeModal() { document.getElementById('shareModal').classList.remove('open'); }
+
+        // ═══ EDITOR ═══
+        const ed = document.getElementById('editor');
+        const wc = document.getElementById('wc');
+        const cc = document.getElementById('cc');
+        const lc = document.getElementById('lc');
+        let st;
+
+        // Load saved content
+        const saved = localStorage.getItem('np_html');
+        if (saved && !location.hash.startsWith('#note/')) ed.innerHTML = saved;
+        updateStats();
+        loadShared();
+
+        ed.addEventListener('input', () => { updateStats(); autoSave(); });
+
+        function updateStats() {
+            const t = ed.innerText || '';
+            wc.textContent = t.trim() === '' ? 0 : t.trim().split(/\s+/).length;
+            cc.textContent = t.length;
+            lc.textContent = (t.match(/\n/g) || []).length + 1;
+        }
+
+        function autoSave() {
+            clearTimeout(st);
+            st = setTimeout(() => {
+                localStorage.setItem('np_html', ed.innerHTML);
+                const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+                document.getElementById('saveStatus').textContent = 'Last Saved: ' + time;
+            }, 600);
+        }
+
+        function saveManual() {
+            localStorage.setItem('np_html', ed.innerHTML);
+            const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+            document.getElementById('saveStatus').textContent = 'Last Saved: ' + time;
+            showToast('Saved!');
+        }
+
+        function execCmd(c, v) { document.execCommand(c, false, v || null); ed.focus(); }
+        function execBlock(t) { document.execCommand('formatBlock', false, t); ed.focus(); }
+        function insertCode() { document.execCommand('formatBlock', false, 'pre'); ed.focus(); }
+
+        function copyText() {
+            const t = ed.innerText;
+            if (!t.trim()) { showToast('Nothing to copy'); return; }
+            navigator.clipboard.writeText(t).then(() => showToast('Copied to clipboard!'));
+        }
+
+        function downloadNote() {
+            const t = ed.innerText;
+            if (!t.trim()) { showToast('Nothing to download'); return; }
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(new Blob([t], { type: 'text/plain' }));
+            a.download = 'notepad-' + new Date().toISOString().slice(0, 10) + '.txt';
+            a.click();
+            showToast('Note downloaded!');
+        }
+
+        function printNote() { window.print(); }
+
+        // ═══ THEME ═══
+        function toggleTheme() {
+            const d = document.documentElement;
+            if (d.getAttribute('data-theme') === 'dark') {
+                d.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                document.getElementById('themeBtn').innerHTML = '&#9728;&#65039;';
+                document.getElementById('themeBtn2').innerHTML = '&#9728;&#65039;';
+            } else {
+                d.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                document.getElementById('themeBtn').innerHTML = '&#127769;';
+                document.getElementById('themeBtn2').innerHTML = '&#9790;';
+            }
+        }
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.getElementById('themeBtn').innerHTML = '&#127769;';
+            document.getElementById('themeBtn2').innerHTML = '&#9790;';
+        }
+
+        // ═══ FAQ ═══
+        function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+
+        // ═══ BLOG ARTICLES ═══
+        function openArticle(n) {
+            document.getElementById('mainPage').style.display = 'none';
+            document.getElementById('article' + n).classList.add('open');
+            window.scrollTo(0, 0);
+        }
+
+        function closeArticle() {
+            document.querySelectorAll('.article-overlay').forEach(a => a.classList.remove('open'));
+            document.getElementById('mainPage').style.display = 'block';
+        }
+
+        // ═══ TOAST ═══
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 2200);
+        }
+    </script>
+</body>
+</html>
