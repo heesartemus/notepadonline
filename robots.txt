@@ -1,0 +1,24 @@
+# robots.txt for notepadonline.app
+# Last updated: 2026-03-28
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+
+# Sitemap location
+Sitemap: https://notepadonline.app/sitemap.xml
+
+# Crawl-delay (optional, be nice to your server)
+Crawl-delay: 1
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
