@@ -756,7 +756,7 @@
         <section class="hero">
             <div class="badge">&#9889; 100% Free &mdash; No Signup</div>
             <h2>Free <em>Online Notepad</em><br>with Instant Sharing</h2>
-            <p>Write, edit, and share notes instantly in your browser. Fast, private, and distraction-free — share any note with a unique link in one click.</p>
+            <p>Write, edit, and share notes instantly in your browser.</p>
         </section>
 
         <!-- EDITOR -->
@@ -1108,10 +1108,10 @@
         async function sbPost(table, data) {
             const r = await fetch(SB_URL + '/rest/v1/' + table, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY, 'Prefer': 'return=representation' },
+                headers: { 'Content-Type': 'application/json', 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY, 'Prefer': 'return=minimal' },
                 body: JSON.stringify(data)
             });
-            return r.json();
+            return r.ok;
         }
 
         async function sbGet(table, id) {
@@ -1148,7 +1148,7 @@
             try {
                 const id = crypto.randomUUID();
                 const r = await sbPost('notes', { id: id, content: html, created_at: new Date().toISOString() });
-                if (r && r.length > 0) {
+                if (r) {
                     const url = location.origin + '/#note/' + id;
                     document.getElementById('shareUrl').value = url;
                     document.getElementById('shareMsg').textContent = 'Anyone with this link can view your note:';
