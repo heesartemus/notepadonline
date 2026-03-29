@@ -1,0 +1,36 @@
+# Notepad Online
+
+> Free online notepad with instant sharing. Write, edit, format, and share notes in your browser. No signup required.
+
+## About
+
+Notepad Online (notepadonline.app) is a free, browser-based text editor that lets anyone write, format, and share notes instantly. No account or signup is needed. Notes auto-save in your browser and can be shared with a unique link.
+
+## Features
+
+- Rich text editing (bold, italic, headings, lists, quotes, code blocks)
+- Instant sharing via unique link
+- Auto-save in browser
+- Live word, character, and line count
+- Dark and light mode
+- Download notes as .txt files
+- Print notes
+- Fully responsive on all devices
+- No signup, no ads, no tracking
+
+## How Sharing Works
+
+Click the Share button to save your note and generate a unique link. Anyone with the link can view the note instantly without signing up. Shared notes are stored on our server. Local notes stay in your browser only.
+
+## Privacy
+
+- No personal data collected
+- No cookies or tracking
+- No user accounts
+- Local notes never leave your browser
+- Shared notes are public via their unique link
+- Vercel Web Analytics (anonymous, no cookies)
+
+## URL
+
+https://notepadonline.app/
