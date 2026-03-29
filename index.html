@@ -1238,8 +1238,8 @@
 
     <script>
         // ═══ SUPABASE ═══
-        const SB_URL = 'https://rovnygozgksxrcecjxon.supabase.co';
-        const SB_KEY = 'sb_publishable_scDugb5zbxAg5W7GX3HKYg_PL-06TOr';
+        const SB_URL = 'https://hkqsdymiegpxopyflzhl.supabase.co';
+        const SB_KEY = 'sb_publishable_Na6vo1PUJd0m6cMLMjT1Hw_FDtoD_1F';
 
         async function sbPost(table, data) {
             const r = await fetch(SB_URL + '/rest/v1/' + table, {
@@ -1278,6 +1278,7 @@
         async function shareNote() {
             const html = ed.innerHTML, text = ed.innerText;
             if (!text.trim()) { showToast('Write something first!'); return; }
+            if (html.length > 100000) { showToast('Note is too large to share (max 100KB)'); return; }
             document.getElementById('shareMsg').textContent = 'Generating link...';
             document.getElementById('shareRow').style.display = 'none';
             document.getElementById('shareModal').classList.add('open');
