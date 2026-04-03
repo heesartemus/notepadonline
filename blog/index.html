@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Notepad Online | Tips, Guides & Comparisons</title>
+    <meta name="description" content="Tips, guides, and comparisons about online notepads, plain text editors, and writing tools. Learn how to write and share notes faster.">
+    <meta name="keywords" content="notepad online blog, online notepad tips, plain text editor guide, writing productivity, share notes online">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://notepadonline.app/blog">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog — Notepad Online">
+    <meta property="og:description" content="Tips, guides, and comparisons about online notepads and plain text editors.">
+    <meta property="og:url" content="https://notepadonline.app/blog">
+    <meta property="og:image" content="https://notepadonline.app/og-image.png">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg:#FAF9F7; --card:#FFF; --text:#1A1A1A; --muted:#7A7A7A; --accent:#E8572A; --accent-soft:#FDEEE9; --border:#E8E6E3; --toolbar:#F5F4F2; --font:'DM Sans',sans-serif; }
+        [data-theme="dark"] { --bg:#121210; --card:#1C1C1A; --text:#EAEAE8; --muted:#8A8A88; --accent:#F06B3F; --accent-soft:#2A1F1A; --border:#2A2A28; --toolbar:#222220; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:var(--font); background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; }
+
+        header { padding:14px 32px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--border); background:var(--card); position:sticky; top:0; z-index:100; }
+        .logo { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); }
+        .logo-ic { width:36px; height:36px; background:var(--accent); border-radius:9px; display:flex; align-items:center; justify-content:center; color:white; font-weight:800; font-size:17px; }
+        .logo-tx { font-size:19px; font-weight:700; }
+        .logo-tx span { color:var(--accent); }
+        nav a { color:var(--muted); text-decoration:none; font-size:14px; font-weight:500; padding:8px 14px; border-radius:8px; }
+        nav a:hover { color:var(--text); background:var(--toolbar); }
+
+        .hero { text-align:center; padding:48px 24px 40px; }
+        .hero h1 { font-size:clamp(28px,4vw,42px); font-weight:700; letter-spacing:-1.2px; margin-bottom:12px; }
+        .hero p { font-size:16px; color:var(--muted); max-width:460px; margin:0 auto; }
+
+        .grid { max-width:960px; margin:0 auto; padding:0 24px 60px; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; }
+
+        .card { background:var(--card); border:1px solid var(--border); border-radius:14px; overflow:hidden; text-decoration:none; color:var(--text); transition:all 0.25s; }
+        .card:hover { border-color:var(--accent); box-shadow:0 4px 20px rgba(0,0,0,0.06); transform:translateY(-3px); }
+        .card-thumb { height:140px; display:flex; align-items:center; justify-content:center; font-size:44px; }
+        .card-thumb.t1 { background:linear-gradient(135deg,#667eea,#764ba2); }
+        .card-thumb.t2 { background:linear-gradient(135deg,#f093fb,#f5576c); }
+        .card-thumb.t3 { background:linear-gradient(135deg,#4facfe,#00f2fe); }
+        .card-body { padding:20px; }
+        .card-tag { display:inline-block; padding:3px 10px; background:var(--accent-soft); color:var(--accent); font-size:11px; font-weight:600; border-radius:6px; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:10px; }
+        .card-body h2 { font-size:17px; font-weight:700; line-height:1.35; margin-bottom:8px; letter-spacing:-0.3px; }
+        .card-body p { font-size:14px; color:var(--muted); line-height:1.5; margin-bottom:10px; }
+        .card-meta { font-size:12px; color:var(--muted); opacity:0.7; }
+
+        footer { border-top:1px solid var(--border); padding:24px; text-align:center; font-size:13px; color:var(--muted); }
+        footer a { color:var(--accent); text-decoration:none; }
+        @media(max-width:640px) { header { padding:12px 16px; } .grid { padding:0 16px 40px; } }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="logo"><div class="logo-ic">N</div><div class="logo-tx">notepad<span>online</span></div></a>
+        <nav><a href="/">Editor</a><a href="/blog">Blog</a></nav>
+    </header>
+
+    <section class="hero">
+        <h1>Blog</h1>
+        <p>Tips, guides, and comparisons about online notepads, plain text editors, and writing tools.</p>
+    </section>
+
+    <div class="grid">
+        <a href="/blog/white-notepad-for-engineering-online" class="card">
+            <div class="card-thumb t1">📒</div>
+            <div class="card-body">
+                <div class="card-tag">Guide</div>
+                <h2>White Notepad for Engineering Online — Best Free Tool for Technical Notes</h2>
+                <p>Why engineers are switching to online notepads for calculations, code snippets, and project notes.</p>
+                <div class="card-meta">March 25, 2026 · 6 min read</div>
+            </div>
+        </a>
+
+        <a href="/blog/online-writing-notepad-productivity-tips" class="card">
+            <div class="card-thumb t2">✍️</div>
+            <div class="card-body">
+                <div class="card-tag">Writing</div>
+                <h2>Online Writing Notepad — 7 Ways to Boost Your Productivity</h2>
+                <p>Practical tips for using a free online writing notepad to write faster and think clearer.</p>
+                <div class="card-meta">March 22, 2026 · 5 min read</div>
+            </div>
+        </a>
+
+        <a href="/blog/free-online-notepad-vs-desktop-notepad" class="card">
+            <div class="card-thumb t3">🚀</div>
+            <div class="card-body">
+                <div class="card-tag">Comparison</div>
+                <h2>Free Online Notepad vs Desktop Notepad — Which Is Better in 2026?</h2>
+                <p>A detailed comparison of browser-based notepads versus installed apps like Notepad++.</p>
+                <div class="card-meta">March 18, 2026 · 7 min read</div>
+            </div>
+        </a>
+
+        <a href="/blog/best-free-online-notepad-for-students" class="card">
+            <div class="card-thumb t1">🎓</div>
+            <div class="card-body">
+                <div class="card-tag">Students</div>
+                <h2>Best Free Online Notepad for Students in 2026</h2>
+                <p>How students use free online notepads to take notes, share study guides, and ace exams.</p>
+                <div class="card-meta">March 30, 2026 · 6 min read</div>
+            </div>
+        </a>
+
+        <a href="/blog/how-to-share-notes-online-without-signing-up" class="card">
+            <div class="card-thumb t2">🔗</div>
+            <div class="card-body">
+                <div class="card-tag">How-To</div>
+                <h2>How to Share Notes Online Without Signing Up</h2>
+                <p>The fastest way to share text, study notes, and quick messages with anyone — no accounts.</p>
+                <div class="card-meta">March 30, 2026 · 5 min read</div>
+            </div>
+        </a>
+
+        <a href="/blog/free-plain-text-editor-online" class="card">
+            <div class="card-thumb t3">📝</div>
+            <div class="card-body">
+                <div class="card-tag">Tool</div>
+                <h2>Best Free Plain Text Editor Online in 2026</h2>
+                <p>Write clean, unformatted text in your browser. No downloads, no signup.</p>
+                <div class="card-meta">April 3, 2026 · 5 min read</div>
+            </div>
+        </a>
+
+        <a href="/blog/wordpad-online-free-alternative" class="card">
+            <div class="card-thumb t1">📄</div>
+            <div class="card-body">
+                <div class="card-tag">Alternative</div>
+                <h2>WordPad Online — Free Alternative That Works in Your Browser</h2>
+                <p>Microsoft removed WordPad. Here's a free online replacement with even more features.</p>
+                <div class="card-meta">April 3, 2026 · 5 min read</div>
+            </div>
+        </a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 <a href="/">Notepad Online</a> &mdash; Free Plain Text Editor &amp; Online Notepad.</p>
+    </footer>
+    <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
